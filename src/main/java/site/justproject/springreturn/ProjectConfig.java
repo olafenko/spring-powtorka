@@ -10,13 +10,17 @@ public class ProjectConfig {
 
     @Bean
     Book book(){
-        return new Book();
+        Book book = new Book();
+        System.out.println("Created bean book : " + book);
+        return book;
     }
 
     @Bean
     Umbrella umbrella(){
         return new Umbrella();
     }
+
+
 
 
 
