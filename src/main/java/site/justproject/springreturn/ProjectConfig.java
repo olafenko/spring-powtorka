@@ -17,12 +17,17 @@ public class ProjectConfig {
 
     @Bean
     Umbrella umbrella(){
-        return new Umbrella();
+        return new Umbrella("Spoko parasolka");
     }
 
+    @Bean
+    Umbrella umbrella2(){
+        return new Umbrella("Niezła parasolka");
+    }
 
-
-
-
+    @Bean
+    Worker worker(){
+        return new Worker(umbrella());
+    }
 
 }
