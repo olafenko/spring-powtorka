@@ -25,9 +25,4 @@ public class ProjectConfig {
         return new Umbrella("Niezła parasolka");
     }
 
-    @Bean
-    Worker worker(Umbrella umbrella2){
-        return new Worker(umbrella2);
-    }
-
 }
