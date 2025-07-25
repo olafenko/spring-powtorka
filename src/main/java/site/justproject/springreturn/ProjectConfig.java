@@ -26,8 +26,8 @@ public class ProjectConfig {
     }
 
     @Bean
-    Worker worker(){
-        return new Worker(umbrella());
+    Worker worker(Umbrella umbrella2){
+        return new Worker(umbrella2);
     }
 
 }
