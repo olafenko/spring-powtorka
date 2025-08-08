@@ -23,7 +23,6 @@ public class ProjectConfig {
     }
 
     @Bean
-
     Umbrella umbrella2(){
         return new Umbrella("Niezła parasolka");
     }

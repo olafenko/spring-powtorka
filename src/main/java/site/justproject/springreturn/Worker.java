@@ -1,6 +1,5 @@
 package site.justproject.springreturn;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import site.justproject.springreturn.model.Umbrella;
 
