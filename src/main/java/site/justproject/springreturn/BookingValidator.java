@@ -1,22 +1,23 @@
 package site.justproject.springreturn;
 
-import java.time.LocalDateTime;
-
 public class BookingValidator {
 
 
+    private final BookDateValidator bookDateValidator;
+
+
+    public BookingValidator(BookDateValidator bookDateValidator) {
+        this.bookDateValidator = bookDateValidator;
+    }
+
     public String validateBooking(BookingRequest request){
 
-        return validateBookDate(request);
+        String dateValidateResult = bookDateValidator.validateBookDate(request);
+
+
+        return dateValidateResult;
 
     }
 
-    private static String validateBookDate(BookingRequest request) {
-        if(request.date().isBefore(LocalDateTime.now())){
-            return "Failed";
-        }
-
-        return "Success";
-    }
 
 }
