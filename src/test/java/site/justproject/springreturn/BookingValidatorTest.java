@@ -3,6 +3,7 @@ package site.justproject.springreturn;
 import org.junit.jupiter.api.Test;
 
 import java.awt.print.Book;
+import java.time.Clock;
 import java.time.LocalDateTime;
 import java.time.Month;
 
@@ -15,9 +16,9 @@ class BookingValidatorTest {
     void should_return_success_validation_when_user_gave_correct_request() {
 
         //given
-        BookingValidator testValidator = new BookingValidator();
+        BookingValidator testValidator = new BookingValidator(new BookDateValidator(new DateService(Clock.systemUTC())));
 
-        LocalDateTime bookDate = LocalDateTime.of(2025, Month.AUGUST,8,19,30);
+        LocalDateTime bookDate = LocalDateTime.now().plusDays(1);
         BookingRequest testRequest = new BookingRequest("Sucharskiego", "Konarskiego", "Ropczyce",bookDate);
 
         //when
@@ -32,7 +33,7 @@ class BookingValidatorTest {
     void should_return_failed_validation_when_user_gave_incorrect_date() {
 
         //given
-        BookingValidator testValidator = new BookingValidator();
+        BookingValidator testValidator = new BookingValidator(new BookDateValidator(new DateService(Clock.systemUTC())));
 
         LocalDateTime bookDate = LocalDateTime.of(2025, Month.AUGUST,8,15,30);
         BookingRequest testRequest = new BookingRequest("Sucharskiego", "Konarskiego", "Ropczyce",bookDate);
